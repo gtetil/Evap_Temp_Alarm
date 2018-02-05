@@ -6,7 +6,7 @@ int muteBtnState = 0;
 int alarmState = 0;
 int prevAlarmState = 0;
 int prevMuteState = 0;
-int muteTime = 3000; //in milliseconds
+int muteTime = 10000; //in milliseconds
 int muteTimer;
 int muteTimerElapsed = 0;
 int muteState = 0;
@@ -21,8 +21,8 @@ void setup() {
 
 void loop() {
 
-  muteBtnState = !digitalRead(mutePin);
-  alarmState = !digitalRead(alarmPin);
+  muteBtnState = digitalRead(mutePin);
+  alarmState = digitalRead(alarmPin);
 
   //check if mute button was pushed
   if (muteBtnState == 1 && prevMuteState == 0) {
